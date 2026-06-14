@@ -1,0 +1,38 @@
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+
+    name VARCHAR(100) NOT NULL,
+
+    email VARCHAR(150) UNIQUE NOT NULL,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE resources (
+    id SERIAL PRIMARY KEY,
+
+    title VARCHAR(200) NOT NULL,
+
+    description TEXT,
+
+    resource_type VARCHAR(20)
+        CHECK (
+            resource_type IN (
+                'VIDEO',
+                'DOCUMENT',
+                'IMAGE'
+            )
+        ),
+
+    url TEXT NOT NULL,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    is_active BOOLEAN DEFAULT TRUE,
+
+    user_id INTEGER NOT NULL,
+
+    CONSTRAINT fk_resource_user
+        FOREIGN KEY(user_id)
+        REFERENCES users(id)
+);

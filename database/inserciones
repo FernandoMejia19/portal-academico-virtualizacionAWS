@@ -1,0 +1,21 @@
+
+INSERT INTO users(name,email)
+VALUES
+('Fernando','fernando@gmail.com'),
+('Maria','maria@gmail.com');
+
+INSERT INTO resources(
+    title,
+    description,
+    resource_type,
+    url,
+    user_id
+)
+VALUES
+(
+    'Curso Docker',
+    'Curso introductorio',
+    'VIDEO',
+    'https://youtube.com/watch?v=123',
+    1
+);
