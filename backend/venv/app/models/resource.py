@@ -8,7 +8,7 @@ from sqlalchemy import ForeignKey
 
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
-from app.database import Base
+from backend.venv.app.database import Base
 
 
 class Resource(Base):

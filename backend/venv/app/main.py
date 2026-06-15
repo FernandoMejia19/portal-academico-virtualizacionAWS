@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
-from app.routes.users import router as users_router
-from app.routes.resources import (
+from backend.venv.app.routes.users import router as users_router
+from backend.venv.app.routes.resources import (
     router as resources_router
 )
 

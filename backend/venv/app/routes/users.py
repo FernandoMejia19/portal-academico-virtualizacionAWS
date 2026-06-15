@@ -2,10 +2,10 @@ from fastapi import APIRouter
 from fastapi import Depends
 from sqlalchemy.orm import Session
 
-from app.dependencies import get_db
-from app.models.user import User
-from app.schemas.user import UserCreate
-from app.schemas.user import UserResponse
+from backend.venv.app.dependencies import get_db
+from backend.venv.app.models.user import User
+from backend.venv.app.schemas.user import UserCreate
+from backend.venv.app.schemas.user import UserResponse
 
 router = APIRouter(
     prefix="/users",
