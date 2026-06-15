@@ -3,11 +3,10 @@ from fastapi import Depends
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
 
-from backend.venv.app.dependencies import get_db
+from app.dependencies import get_db
+from app.models.resource import Resource
 
-from backend.venv.app.models.resource import Resource
-
-from backend.venv.app.schemas.resource import (
+from app.schemas.resource import (
     ResourceCreate,
     ResourceResponse
 )
