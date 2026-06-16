@@ -2,6 +2,7 @@ import { Component, OnInit  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiService } from './services/api.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -32,7 +33,10 @@ export class App implements OnInit {
     user_id: 1
   };
 
-  constructor(private api: ApiService) {
+constructor(
+  private api: ApiService,
+  private cdr: ChangeDetectorRef
+) {
   console.log("CONSTRUCTOR");
 }
 
@@ -73,18 +77,11 @@ cargarRecursos() {
 
         console.log("ANTES:", this.recursos.length);
 
-        this.recursos = [
-  {
-    id: 999,
-    title: 'PRUEBA MANUAL',
-    description: 'SI VES ESTO EL HTML FUNCIONA',
-    resource_type: 'DOCUMENT',
-    author: 'ANGELICA',
-    url: 'https://google.com'
-  }
-];
+        this.recursos = [...data];
 
         console.log("DESPUES:", this.recursos.length);
+
+        this.cdr.detectChanges();
 
       },
       error: (err: any) => {
