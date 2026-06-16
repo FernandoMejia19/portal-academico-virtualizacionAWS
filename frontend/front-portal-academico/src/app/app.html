@@ -1,107 +1,158 @@
 <div class="container">
 
-  <header class="hero">
-  <h1>Portal Académico</h1>
-  <p class="subtitle">Gestión de usuarios y recursos multimedia</p>
+  <header class="navbar">
 
-  <div class="authors">
-    <h2>Desarrollado por</h2>
-    <div class="author-list">
-      <h3>Angélica Panamá</h3>
-      <h3>Fernando Mejía</h3>
+    <div class="logo">
+      <h2>Portal Académico</h2>
     </div>
-  </div>
-</header>
 
-  <!-- Usuarios -->
-  <section class="card">
-    <h2>Registrar Usuario</h2>
-
-    <input
-      type="text"
-      placeholder="Nombre"
-      [(ngModel)]="nuevoUsuario.name"
-    >
-
-    <input
-      type="email"
-      placeholder="Correo electrónico"
-      [(ngModel)]="nuevoUsuario.email"
-    >
-
-    <button (click)="crearUsuario()">
-      Crear Usuario
-    </button>
-  </section>
-
-  <!-- Recursos -->
-  <section class="card">
-    <h2>Registrar Recurso</h2>
-
-    <input
-      type="text"
-      placeholder="Título"
-      [(ngModel)]="nuevoRecurso.title"
-    >
-
-    <input
-      type="text"
-      placeholder="Descripción"
-      [(ngModel)]="nuevoRecurso.description"
-    >
-
-    <input
-      type="text"
-      placeholder="Tipo (video, pdf, imagen)"
-      [(ngModel)]="nuevoRecurso.resource_type"
-    >
-
-    <input
-      type="text"
-      placeholder="URL"
-      [(ngModel)]="nuevoRecurso.url"
-    >
-
-    <input
-      type="number"
-      placeholder="ID Usuario"
-      [(ngModel)]="nuevoRecurso.user_id"
-    >
-
-    <button (click)="crearRecurso()">
-      Crear Recurso
-    </button>
-  </section>
-
-  <!-- Lista -->
-  <section class="card">
-    <h2>Recursos Registrados</h2>
-
-    <button (click)="cargarRecursos()">
-      Actualizar Lista
-    </button>
-
-    <div
-      class="resource"
-      *ngFor="let recurso of recursos"
-    >
-      <h3>{{ recurso.title }}</h3>
-
-      <p>{{ recurso.description }}</p>
-
-      <span>
-        Tipo: {{ recurso.resource_type }}
-      </span>
-
-      <span>
-        Autor: {{ recurso.author }}
-      </span>
-
-      <a [href]="recurso.url" target="_blank">
-        Abrir recurso
+    <nav>
+      <a href="#" (click)="mostrarFormulario = false; $event.preventDefault()">
+        Recursos
       </a>
+
+      <a href="#" (click)="mostrarFormulario = true; $event.preventDefault()">
+        Crear Recursos
+      </a>
+    </nav>
+
+  </header>
+
+  <section class="hero">
+
+    <h1>Portal Académico</h1>
+
+    <p class="subtitle">
+      Gestión de usuarios y recursos multimedia
+    </p>
+
+    <div class="authors">
+
+      <h2>Desarrollado por</h2>
+
+      <div class="author-list">
+        <span>Angélica Panamá</span>
+        <br>
+        <span>Fernando Mejía</span>
+      </div>
+
     </div>
 
   </section>
+
+  <!-- LISTA DE RECURSOS -->
+
+  <div *ngIf="!mostrarFormulario">
+
+    <section class="cards-container">
+
+      <div class="card" *ngFor="let recurso of recursos">
+
+        <img
+          src="https://picsum.photos/400/250?random={{recurso.id}}"
+          alt="recurso"
+        >
+
+        <div class="card-body">
+
+          <h3>{{ recurso.title }}</h3>
+
+          <p>{{ recurso.description }}</p>
+
+          <span class="tipo">
+            {{ recurso.resource_type }}
+          </span>
+
+          <p class="autor">
+            Autor: {{ recurso.author }}
+          </p>
+
+          <a
+            [href]="recurso.url"
+            target="_blank"
+            class="btn"
+          >
+            Ver Recurso
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- FORMULARIOS -->
+
+  <div *ngIf="mostrarFormulario">
+
+    <div class="contenedor-formulario">
+
+      <section class="form-card">
+
+        <h2>Registrar Usuario</h2>
+
+        <input
+          type="text"
+          placeholder="Nombre"
+          [(ngModel)]="nuevoUsuario.name"
+        >
+
+        <input
+          type="email"
+          placeholder="Correo"
+          [(ngModel)]="nuevoUsuario.email"
+        >
+
+        <button (click)="crearUsuario()">
+          Crear Usuario
+        </button>
+
+      </section>
+
+      <section class="form-card">
+
+        <h2>Registrar Recurso</h2>
+
+        <input
+          type="text"
+          placeholder="Título"
+          [(ngModel)]="nuevoRecurso.title"
+        >
+
+        <input
+          type="text"
+          placeholder="Descripción"
+          [(ngModel)]="nuevoRecurso.description"
+        >
+
+        <input
+          type="text"
+          placeholder="Tipo"
+          [(ngModel)]="nuevoRecurso.resource_type"
+        >
+
+        <input
+          type="text"
+          placeholder="URL"
+          [(ngModel)]="nuevoRecurso.url"
+        >
+
+        <input
+          type="number"
+          placeholder="ID Usuario"
+          [(ngModel)]="nuevoRecurso.user_id"
+        >
+
+        <button (click)="crearRecurso()">
+          Crear Recurso
+        </button>
+
+      </section>
+
+    </div>
+
+  </div>
 
 </div>

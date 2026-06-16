@@ -15,6 +15,8 @@ import { ApiService } from './services/api.spec';
 })
 export class App {
 
+  mostrarFormulario = false;
+
   recursos: any[] = [];
 
   nuevoUsuario = {
