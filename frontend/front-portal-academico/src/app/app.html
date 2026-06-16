@@ -8,7 +8,7 @@
 
     <nav>
       <a href="#" (click)="mostrarFormulario = false; $event.preventDefault()">
-        Recursos
+        Inicio
       </a>
 
       <a href="#" (click)="mostrarFormulario = true; $event.preventDefault()">
@@ -45,8 +45,10 @@
 
 </section>
 
-  <!-- LISTA DE RECURSOS -->
 
+
+
+  <!-- LISTA DE RECURSOS -->
   <div *ngIf="!mostrarFormulario">
 
     <section class="cards-container">
@@ -54,9 +56,9 @@
       <div class="card" *ngFor="let recurso of recursos">
 
         <img
-          src="https://picsum.photos/400/250?random={{recurso.id}}"
+          [src]="obtenerImagen(recurso.resource_type)"
           alt="recurso"
-        >
+        />
 
         <div class="card-body">
 
