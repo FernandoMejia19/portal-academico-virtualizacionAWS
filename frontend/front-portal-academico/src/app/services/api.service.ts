@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
-  private api = 'http://54.173.12.124:8000';
+  private api = 'http://balancedor-165886256.us-east-1.elb.amazonaws.com';
 
   constructor(private http: HttpClient) {}
 
