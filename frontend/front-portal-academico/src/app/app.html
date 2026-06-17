@@ -101,21 +101,16 @@
         <h2>Registrar Usuario</h2>
 
         <input
-          type="text"
-          placeholder="Nombre"
-          [(ngModel)]="nuevoUsuario.name"
-        >
+            type="text"
+            placeholder="Nombre"
+            [(ngModel)]="nuevoUsuario.name"
+          >
 
-        <input
-          type="email"
-          placeholder="Correo"
-          [(ngModel)]="nuevoUsuario.email"
-        >
-
-        <button (click)="crearUsuario()">
-          Crear Usuario
-        </button>
-
+          <input
+            type="email"
+            placeholder="Correo"
+            [(ngModel)]="nuevoUsuario.email"
+          >
       </section>
 
       <section class="form-card">
@@ -134,30 +129,37 @@
           [(ngModel)]="nuevoRecurso.description"
         >
 
-        <input
-          type="text"
-          placeholder="Tipo"
+        <select
           [(ngModel)]="nuevoRecurso.resource_type"
         >
 
+          <option value="">
+            Seleccione un tipo
+          </option>
+
+          <option value="VIDEO">
+            Video
+          </option>
+
+          <option value="IMAGE">
+            Imagen
+          </option>
+
+          <option value="DOCUMENT">
+            Documento
+          </option>
+
+        </select>
         <input
           type="text"
           placeholder="URL"
           [(ngModel)]="nuevoRecurso.url"
         >
-
-        <input
-          type="number"
-          placeholder="ID Usuario"
-          [(ngModel)]="nuevoRecurso.user_id"
-        >
-
-        <button (click)="crearRecurso()">
-          Crear Recurso
-        </button>
-
       </section>
 
+      <button class="boton" (click)="crearTodo()">
+        Crear Recurso
+      </button>
     </div>
 
   </div>

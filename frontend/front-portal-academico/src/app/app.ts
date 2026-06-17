@@ -114,7 +114,44 @@ cargarRecursos() {
   return imagenes[tipo?.toLowerCase()]
     || 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3';
 }
+crearTodo() {
 
+  this.api.createUser(this.nuevoUsuario)
+    .subscribe({
+
+      next: (usuario: any) => {
+
+        const recurso = {
+          ...this.nuevoRecurso,
+          user_id: usuario.id
+        };
+
+        this.api.createResource(recurso)
+          .subscribe({
+
+            next: () => {
+
+              alert('Usuario y recurso creados');
+
+              this.cargarRecursos();
+
+            },
+
+            error: (err: any) => {
+              console.error(err);
+            }
+
+          });
+
+      },
+
+      error: (err: any) => {
+        console.error(err);
+      }
+
+    });
+
+}
 ngOnInit() {
   console.log("ENTRO AL INIT");
   this.cargarRecursos();

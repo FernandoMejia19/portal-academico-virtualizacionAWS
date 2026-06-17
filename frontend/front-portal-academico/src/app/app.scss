@@ -178,7 +178,7 @@ nav a:hover {
   border-radius: 8px;
 }
 
-.form-card button {
+.boton {
   background: #2563eb;
 
   color: white;
@@ -279,4 +279,19 @@ nav a:hover {
 }
 .p{
   color: #fffdfd;
+}
+.form-card select {
+
+  width: 100%;
+
+  padding: 12px;
+
+  margin-bottom: 15px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+
 }
