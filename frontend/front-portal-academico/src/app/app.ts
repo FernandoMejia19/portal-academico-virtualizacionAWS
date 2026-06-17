@@ -19,7 +19,7 @@ export class App implements OnInit {
   mostrarFormulario = false;
 
   recursos: any[] = [];
-
+  serverName = '';
   nuevoUsuario = {
     name: '',
     email: ''
@@ -155,6 +155,9 @@ crearTodo() {
 ngOnInit() {
   console.log("ENTRO AL INIT");
   this.cargarRecursos();
+  this.api.getServerInfo().subscribe(res => {
+    this.serverName = res.server;
+  });
 }
 
 }
