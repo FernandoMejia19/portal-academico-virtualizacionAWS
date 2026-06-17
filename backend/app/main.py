@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.routes.users import router as users_router
 from app.routes.resources import router as resources_router
+from routes.system import router as system_router
 
 app = FastAPI()
 
@@ -11,7 +12,7 @@ app.add_middleware(
     allow_origins=[
         "http://3.224.64.55",
         "http://localhost:4200",
-        "http://127.0.0.1"
+        "http://127.0.0.1:4200"
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -20,6 +21,7 @@ app.add_middleware(
 
 app.include_router(users_router)
 app.include_router(resources_router)
+app.include_router(system_router)
 
 @app.get("/")
 def root():

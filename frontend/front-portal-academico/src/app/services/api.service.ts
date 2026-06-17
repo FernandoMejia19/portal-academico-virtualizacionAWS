@@ -6,10 +6,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
-  private api = 'http://balancedor-165886256.us-east-1.elb.amazonaws.com';
+  private api = 'http://3.224.64.55';
 
   constructor(private http: HttpClient) {}
-
+  
   getResources() {
     return this.http.get(`${this.api}/resources/`);
   }
@@ -21,4 +21,7 @@ export class ApiService {
   createResource(data: any) {
     return this.http.post(`${this.api}/resources/`, data);
   }
+  getServerInfo() {
+  return this.http.get<any>(`${this.api}/server-info`);
+}
 }

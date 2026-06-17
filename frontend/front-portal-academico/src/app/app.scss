@@ -280,3 +280,12 @@ nav a:hover {
 .p{
   color: #fffdfd;
 }
+
+.server-indicator {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 11px;
+  color: #888;
+  opacity: 0.7;
+}
