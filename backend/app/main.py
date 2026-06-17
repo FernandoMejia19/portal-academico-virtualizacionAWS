@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.routes.users import router as users_router
 from app.routes.resources import router as resources_router
-from routes.system import router as system_router
+from app.routes.system import router as system_router
 
 app = FastAPI()
 
